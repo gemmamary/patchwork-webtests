@@ -26,15 +26,16 @@ def test_filter_patches(browser):
   patchwork_page.filter_by_series('fix series querry')
   filtered_results = FilteredPatchesResults(browser)
   assert filtered_results.active_filters_contains('Series') > -1
-  
+     
   '''
-       
+     
   patchwork_page.filter_by_submitter('Stephen Finucane')
   filtered_results = FilteredPatchesResults(browser)
   assert filtered_results.active_filters_contains('Submitter') > -1
   
-  
-  
+  patchwork_page.filter_by_state('New')
+  filtered_results = FilteredPatchesResults(browser)
+  assert filtered_results.active_filters_contains('State') > 1
   
   
 ''' 
