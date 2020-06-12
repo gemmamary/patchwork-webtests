@@ -1,7 +1,7 @@
 import pytest
 
 from main.filtering import PatchworkHomePage
-from main.result import FilteredPatchesResults
+from main.result import FilteredPatchResults
 
 from selenium.webdriver import Chrome
 
@@ -13,42 +13,67 @@ def browser():
   yield driver
   driver.quit()
   
-def test_filter_patches(browser):
+   
+# fails due to bug in application
+
+def test_filter_by_series(browser):
   
   patchwork_page = PatchworkHomePage(browser)
   patchwork_page.load()
   patchwork_page.show_filters() 
   
-  '''
-  
-  Failing test due to bug in application
-  
   patchwork_page.filter_by_series('fix series querry')
-  filtered_results = FilteredPatchesResults(browser)
+  filtered_results = FilteredPatchResults(browser)
   assert filtered_results.active_filters_contains('Series') > -1
-     
-  '''
+  
+# fails due to bug in application 
+
+def test_filter_by_submitter(browser):
+
+  patchwork_page = PatchworkHomePage(browser)
+  patchwork_page.load()
+  patchwork_page.show_filters() 
      
   patchwork_page.filter_by_submitter('Stephen Finucane')
-  filtered_results = FilteredPatchesResults(browser)
+  filtered_results = FilteredPatchResults(browser)
   assert filtered_results.active_filters_contains('Submitter') > -1
   
+def test_filter_by_state(browser):
+  
+  patchwork_page = PatchworkHomePage(browser)
+  patchwork_page.load()
+  patchwork_page.show_filters() 
+  
   patchwork_page.filter_by_state('New')
-  filtered_results = FilteredPatchesResults(browser)
+  filtered_results = FilteredPatchResults(browser)
   assert filtered_results.active_filters_contains('State') > 1
   
+def test_filter_by_search_term(browser):
   
-''' 
-TEST SCENARIOS
-
-show the patchwork filter
-hide the patchwork filter
-filter by series
-filter by submitter
-filter by state
-filter by archived
-filter by delegate
-search for patches
-remove a filter
-
-'''
+  patchwork_page = PatchworkHomePage(browser)
+  patchwork_page.load()
+  patchwork_page.show_filters()
+  
+  patchwork_page.filter_by_search_term('query')
+  filtered_results = FilteredPatchResults(browser)
+  assert filtered_results.active_filters_contains('Search') > 1
+  
+def test_filter_by_archived(browser):
+  
+  patchwork_page = PatchworkHomePage(browser)
+  patchwork_page.load()
+  patchwork_page.show_filters() 
+  
+  patchwork_page.filter_by_archived('both')
+  filtered_results = FilteredPatchResults(browser)
+  assert filtered_results.active_filters_contains('Archived') > 1
+  
+def test_filter_by_delegate(browser):
+  
+  patchwork_page = PatchworkHomePage(browser)
+  patchwork_page.load()
+  patchwork_page.show_filters() 
+  
+  patchwork_page.filter_by_delegate('Nobody')
+  filtered_results = FilteredPatchResults(browser)
+  assert filtered_results.active_filters_contains('Delegate') > 1
