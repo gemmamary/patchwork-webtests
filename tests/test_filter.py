@@ -2,7 +2,6 @@ import pytest
 
 from main.filtering import PatchworkHomePage
 from main.result import FilteredPatchResults
-
 from selenium.webdriver import Chrome
 
 
@@ -12,6 +11,8 @@ def browser():
     driver.implicitly_wait(10)
     yield driver
     driver.quit()
+
+
 
 
 # fails due to bug in application
