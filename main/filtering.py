@@ -1,6 +1,6 @@
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
-from main.filterformlocators import FilterFormLocators
+from main.filter_form_locators import FilterFormLocators
 
 
 class PatchworkFilterForm:

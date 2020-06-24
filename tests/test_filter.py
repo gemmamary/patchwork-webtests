@@ -1,14 +1,24 @@
 import pytest
+import json
 
-from main.filtering import PatchworFilterForm
-from main.result import FilteredPatchResults
+from main.filtering import PatchworkFilterForm
+from main.filter_result import FilteredPatchResults
 from selenium.webdriver import Chrome
 
+@pytest.fixture(scope='session')
+def config():
+    with open('tests/config.json') as config_file:
+        data = json.load(config_file)
+    return data
 
 @pytest.fixture
-def browser():
-    driver = Chrome()
-    driver.implicitly_wait(10)
+def browser(config):
+    if config['browser'] == 'chrome':
+        driver = Chrome()
+    else:
+        raise Exception(f'"{config["browser"]}" is not a supported browser')
+
+    driver.implicitly_wait(config['wait_time'])
     yield driver
     driver.quit()
 
