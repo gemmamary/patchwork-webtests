@@ -1,6 +1,6 @@
 import pytest
 
-from main.filtering import PatchworkHomePage
+from main.filtering import PatchworFilterForm
 from main.result import FilteredPatchResults
 from selenium.webdriver import Chrome
 
@@ -20,7 +20,7 @@ def browser():
 
 def test_filter_by_series(browser):
 
-    patchwork_page = PatchworkHomePage(browser)
+    patchwork_page = PatchworkFilterForm(browser)
     patchwork_page.load()
     patchwork_page.show_filters()
     patchwork_page.filter_by_series("fix series querry")
@@ -34,7 +34,7 @@ def test_filter_by_series(browser):
 
 def test_filter_by_submitter(browser):
 
-    patchwork_page = PatchworkHomePage(browser)
+    patchwork_page = PatchworkFilterForm(browser)
     patchwork_page.load()
     patchwork_page.show_filters()
     patchwork_page.filter_by_submitter("Stephen Finucane")
@@ -45,7 +45,7 @@ def test_filter_by_submitter(browser):
 
 def test_filter_by_state(browser):
 
-    patchwork_page = PatchworkHomePage(browser)
+    patchwork_page = PatchworkFilterForm(browser)
     patchwork_page.load()
     patchwork_page.show_filters()
     patchwork_page.filter_by_state("New")
@@ -56,7 +56,7 @@ def test_filter_by_state(browser):
 
 def test_filter_by_search_term(browser):
 
-    patchwork_page = PatchworkHomePage(browser)
+    patchwork_page = PatchworkFilterForm(browser)
     patchwork_page.load()
     patchwork_page.show_filters()
     patchwork_page.filter_by_search_term("query")
@@ -67,7 +67,7 @@ def test_filter_by_search_term(browser):
 
 def test_filter_by_archived(browser):
 
-    patchwork_page = PatchworkHomePage(browser)
+    patchwork_page = PatchworkFilterForm(browser)
     patchwork_page.load()
     patchwork_page.show_filters()
     patchwork_page.filter_by_archived("both")
@@ -78,10 +78,10 @@ def test_filter_by_archived(browser):
 
 def test_filter_by_delegate(browser):
 
-    patchwork_page = PatchworkHomePage(browser)
+    patchwork_page = PatchworkFilterForm(browser)
     patchwork_page.load()
     patchwork_page.show_filters()
     patchwork_page.filter_by_delegate("Nobody")
-    
+
     filtered_results = FilteredPatchResults(browser)
     assert filtered_results.active_filters_contains("Delegate") > 1

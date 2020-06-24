@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import Select
 from main.filterformlocators import FilterFormLocators
 
 
-class PatchworkHomePage:
+class PatchworkFilterForm:
 
     URL = "http://127.0.0.1:8000/project/patchwork/list/"   
 
