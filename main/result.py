@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 
-class FilteredPatchesResults:
+class FilteredPatchResults:
 
     ACTIVE_FILTERS = (By.ID, "filtersummary")
 
