@@ -13,7 +13,7 @@ def test_filter_by_series(browser):
     patchwork_page.load()
     patchwork_page.show_filters()
     patchwork_page.filter_by_series("fix series querry")
-    
+
     filtered_results = FilteredPatchResults(browser)
     assert FilteredPatchResults(browser).active_filters_contains("Series") > -1
 

@@ -5,7 +5,7 @@ from main.filter_form_locators import FilterFormLocators
 
 class PatchworkFilterForm:
 
-    URL = "http://127.0.0.1:8000/project/patchwork/list/"   
+    URL = "http://127.0.0.1:8000/project/patchwork/list/"
 
     def __init__(self, browser):
         self.browser = browser
@@ -14,7 +14,9 @@ class PatchworkFilterForm:
         self.browser.get(self.URL)
 
     def show_filters(self):
-        show_patch_filters = self.browser.find_element(*FilterFormLocators.SHOW_PATCH_FILTERS)
+        show_patch_filters = self.browser.find_element(
+            *FilterFormLocators.SHOW_PATCH_FILTERS
+        )
         show_patch_filters.click()
 
     def filter_by_series(self, title):
@@ -22,7 +24,9 @@ class PatchworkFilterForm:
         series_input.send_keys(title + Keys.RETURN)
 
     def filter_by_submitter(self, name):
-        submitter_input = Select(self.browser.find_element(*FilterFormLocators.SUBMITTER_INPUT))
+        submitter_input = Select(
+            self.browser.find_element(*FilterFormLocators.SUBMITTER_INPUT)
+        )
         submitter_input.select_by_index(1)
 
     def filter_by_state(self, state):
@@ -47,7 +51,9 @@ class PatchworkFilterForm:
         submit_filter.click()
 
     def filter_by_delegate(self, name):
-        delegate_filter = Select(self.browser.find_element(*FilterFormLocators.DELEGATE_FILTER))
+        delegate_filter = Select(
+            self.browser.find_element(*FilterFormLocators.DELEGATE_FILTER)
+        )
         submit_filter = self.browser.find_element(*FilterFormLocators.SUBMIT_FILTER)
         delegate_filter.select_by_value(name)
 
