@@ -29,6 +29,6 @@ class FilterFormLocators:
     submit_filter = '//button[@type="submit"]'
     SUBMIT_FILTER = (By.XPATH, submit_filter)
 
-    SHOW_PATCH_FILTERS = (By.LINK_TEXT, "Show patches with")
-
     SERIES_INPUT = (By.ID, "series_input")
+
+    ACTIVE_FILTERS = (By.ID, "filtersummary")

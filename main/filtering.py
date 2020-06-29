@@ -1,21 +1,23 @@
+import pytest
+import json
+
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from main.filter_form_locators import FilterFormLocators
+from main.patchwork_home_locators import PatchworkHomeLocators
 
 
 class PatchworkFilterForm:
 
-    URL = "http://127.0.0.1:8000/project/patchwork/list/"
-
     def __init__(self, browser):
         self.browser = browser
 
-    def load(self):
-        self.browser.get(self.URL)
+    def load(self, base_url):
+        self.browser.get(base_url)
 
     def show_filters(self):
         show_patch_filters = self.browser.find_element(
-            *FilterFormLocators.SHOW_PATCH_FILTERS
+            *PatchworkHomeLocators.SHOW_PATCH_FILTERS
         )
         show_patch_filters.click()
 
@@ -58,3 +60,7 @@ class PatchworkFilterForm:
         delegate_filter.select_by_value(name)
 
         submit_filter.click()
+
+    def active_filters_contains(self, filter_type):
+        active_filters = self.browser.find_element(*FilterFormLocators.ACTIVE_FILTERS).text
+        return active_filters.find(filter_type)
