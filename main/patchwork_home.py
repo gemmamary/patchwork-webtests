@@ -16,8 +16,16 @@ class PatchworkHome:
         show_patch_filters.click()
 
     def filter_form_is_displayed(self):
+
         ff_display_value = self.browser.find_element(*PatchworkHomeLocators.FILTER_FORM).get_attribute('style')
 
         if ff_display_value == 'padding-top: 1em; display: block;':
             return True
 
+    def filter_form_is_hidden(self):
+
+        ff_display_value = self.browser.find_element(*PatchworkHomeLocators.FILTER_FORM).get_attribute('style')
+
+        if ff_display_value == 'padding-top: 1em; display: none;':
+            return True
+        
