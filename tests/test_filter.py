@@ -38,7 +38,7 @@ def test_filter_by_state(browser, base_url):
 
     homepage.filter_by_state("New")
 
-    assert homepage.active_filters_contains("State") > 1
+    assert homepage.active_filters_contains("State") > -1
 
 
 def test_filter_by_search_term(browser, base_url):
@@ -49,7 +49,7 @@ def test_filter_by_search_term(browser, base_url):
 
     homepage.filter_by_search_term("query")
 
-    assert homepage.active_filters_contains("Search") > 1
+    assert homepage.active_filters_contains("Search") > -1
 
 
 def test_filter_by_archived(browser, base_url):
@@ -60,7 +60,7 @@ def test_filter_by_archived(browser, base_url):
 
     homepage.filter_by_archived("both")
 
-    assert homepage.active_filters_contains("Archived") > 1
+    assert homepage.active_filters_contains("Archived") > -1
 
 
 def test_filter_by_delegate(browser, base_url):
@@ -71,4 +71,14 @@ def test_filter_by_delegate(browser, base_url):
 
     homepage.filter_by_delegate("Nobody")
 
-    assert homepage.active_filters_contains("Delegate") > 1
+    assert homepage.active_filters_contains("Delegate") > -1
+
+def test_remove_active_filters(browser, base_url):
+     
+    homepage = PatchworkFilterForm(browser)
+    homepage.load(base_url)
+    homepage.remove_active_filters()
+    homepage.remove_active_filters()
+
+    assert homepage.active_filters_contains("none") > -1
+

@@ -32,3 +32,6 @@ class FilterFormLocators:
     SERIES_INPUT = (By.ID, "series_input")
 
     ACTIVE_FILTERS = (By.ID, "filtersummary")
+
+    remove_active_filter = '//a[@class="filter-action"]//span'
+    REMOVE_ACTIVE_FILTER = (By.XPATH, remove_active_filter)

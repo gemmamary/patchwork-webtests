@@ -61,6 +61,11 @@ class PatchworkFilterForm:
 
         submit_filter.click()
 
+    def remove_active_filters(self):
+        remove_active_filter = self.browser.find_element(*FilterFormLocators.REMOVE_ACTIVE_FILTER)
+
+        remove_active_filter.click()
+
     def active_filters_contains(self, filter_type):
         active_filters = self.browser.find_element(*FilterFormLocators.ACTIVE_FILTERS).text
         return active_filters.find(filter_type)
