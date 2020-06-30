@@ -42,3 +42,12 @@ def test_navigate_to_bundles_page(browser, base_url):
     homepage.navigate_to_bundles()
     
     assert browser.current_url.find("user/login/?next=/project/patchwork/bundles/") > -1
+
+def test_show_project_information(browser, base_url):
+
+    homepage = PatchworkHome(browser)
+    homepage.load(base_url)
+
+    homepage.show_project_information()
+
+    assert browser.current_url.find("project/patchwork/") > -1

@@ -10,3 +10,4 @@ class PatchworkHomeLocators:
 
     BUNDLES = (By.PARTIAL_LINK_TEXT, "Bundles")
 
+    PROJECT_INFORMATION = (By.PARTIAL_LINK_TEXT, "About this project")

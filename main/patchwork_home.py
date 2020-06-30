@@ -37,3 +37,6 @@ class PatchworkHome:
         bundles_icon = self.browser.find_element(*PatchworkHomeLocators.BUNDLES)
         bundles_icon.click()
         
+    def show_project_information(self):
+        information_icon = self.browser.find_element(*PatchworkHomeLocators.PROJECT_INFORMATION)
+        information_icon.click()
