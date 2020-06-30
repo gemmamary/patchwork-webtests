@@ -15,4 +15,6 @@ Use git clone to retrieve these files
 
 Replace the URL in config.json with your localhost 
 
-If tests are being ran on Firefox, update this in config
+If tests are being ran on Firefox, update this in the config file
+
+
