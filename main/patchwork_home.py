@@ -28,4 +28,12 @@ class PatchworkHome:
 
         if ff_display_value == 'padding-top: 1em; display: none;':
             return True
+
+    def navigate_home(self):
+        home_icon = self.browser.find_element(*PatchworkHomeLocators.HOME_ICON)
+        home_icon.click()
+
+    def navigate_to_bundles(self):
+        bundles_icon = self.browser.find_element(*PatchworkHomeLocators.BUNDLES)
+        bundles_icon.click()
         
