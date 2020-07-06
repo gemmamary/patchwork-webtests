@@ -16,5 +16,7 @@ class PatchworkHomeLocators:
 
     REGISTER = (By.LINK_TEXT, "Register")
 
-    MAIL_SETTINGS = (By.LINK_TEXT, "Mail Settings")
+    MAIL_SETTINGS = (By.LINK_TEXT, "Mail settings")
+
+    HIDE_TOOLBAR = (By.ID, "djHideToolBarButton")
 

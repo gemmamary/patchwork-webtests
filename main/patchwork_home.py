@@ -52,3 +52,7 @@ class PatchworkHome:
     def navigate_to_mail_settings(self):
         mail_settings = self.browser.find_element(*PatchworkHomeLocators.MAIL_SETTINGS)
         mail_settings.click()
+
+    def hide_toolbar(self):
+        hide_panel = self.browser.find_element(*PatchworkHomeLocators.HIDE_TOOLBAR)
+        hide_panel.click()

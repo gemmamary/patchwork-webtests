@@ -51,3 +51,32 @@ def test_show_project_information(browser, base_url):
     homepage.show_project_information()
 
     assert browser.current_url.find("project/patchwork/") > -1
+
+def test_navigate_to_login(browser, base_url):
+
+    homepage = PatchworkHome(browser)
+    homepage.load(base_url)
+
+    homepage.navigate_to_login()
+
+    assert browser.current_url.find("user/login/") > -1
+
+def test_navigate_to_registration(browser, base_url):
+
+    homepage = PatchworkHome(browser)
+    homepage.load(base_url)
+
+    homepage.hide_toolbar()
+    homepage.navigate_to_registration()
+
+    assert browser.current_url.find("register/") > -1
+
+def test_navigate_to_mail_settings(browser, base_url):
+
+    homepage = PatchworkHome(browser)
+    homepage.load(base_url)
+
+    homepage.hide_toolbar()
+    homepage.navigate_to_mail_settings()
+
+    assert browser.current_url.find("mail/") > -1
