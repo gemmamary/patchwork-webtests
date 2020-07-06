@@ -40,3 +40,15 @@ class PatchworkHome:
     def show_project_information(self):
         information_icon = self.browser.find_element(*PatchworkHomeLocators.PROJECT_INFORMATION)
         information_icon.click()
+
+    def navigate_to_login(self):
+        login = self.browser.find_element(*PatchworkHomeLocators.LOGIN)
+        login.click()
+
+    def navigate_to_registration(self):
+        register = self.browser.find_element(*PatchworkHomeLocators.REGISTER)
+        register.click()
+
+    def navigate_to_mail_settings(self):
+        mail_settings = self.browser.find_element(*PatchworkHomeLocators.MAIL_SETTINGS)
+        mail_settings.click()
