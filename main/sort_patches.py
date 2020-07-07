@@ -9,6 +9,12 @@ class SortPatches:
     def load(self, base_url):
         self.browser.get(base_url)
 
+    def sort_patches(self, sort_by):
+        sort_by_title = self.browser.find_element(*sort_by)
+        sort_by_title.click()
+
+        '''
+
     def sort_by_patches(self):
         patches_title = self.browser.find_element(*SortPatchesLocators.SORT_BY_PATCH)
         patches_title.click()
@@ -28,3 +34,5 @@ class SortPatches:
     def sort_by_state(self):
         state_title = self.browser.find_element(*SortPatchesLocators.SORT_BY_STATE)
         state_title.click()
+
+        '''

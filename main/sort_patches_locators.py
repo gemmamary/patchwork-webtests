@@ -8,6 +8,8 @@ class SortPatchesLocators:
     delegate_sort = '//table[@id="patchlist"]//thead//tr//th[7]//a'
     state_sort = '//table[@id="patchlist"]//thead//tr//th[8]//a'
 
+    sorted_by_patches = '//table[@id="patchlist"]//thead//tr//th[1]//a//span'
+
 
     SORT_BY_PATCH = (By.XPATH, patches_sort)
 
@@ -18,4 +20,6 @@ class SortPatchesLocators:
     SORT_BY_DELEGATE = (By.XPATH, delegate_sort)
 
     SORT_BY_STATE = (By.XPATH, state_sort)
+
+    SORTED_BY_PATCHES = (By.XPATH, sorted_by_patches)
     
