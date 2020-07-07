@@ -2,9 +2,10 @@ import pytest
 import json
 
 from main.filtering import PatchworkFilterForm
-    
+
 
 # fails due to bug in application
+
 
 def test_filter_by_series(browser, base_url):
 
@@ -13,11 +14,12 @@ def test_filter_by_series(browser, base_url):
     homepage.show_filters()
 
     homepage.filter_by_series("fix series querry")
-    
+
     assert homepage.active_filters_contains("Series") > -1
 
 
 # fails due to bug in application
+
 
 def test_filter_by_submitter(browser, base_url):
 
@@ -73,12 +75,12 @@ def test_filter_by_delegate(browser, base_url):
 
     assert homepage.active_filters_contains("Delegate") > -1
 
+
 def test_remove_active_filters(browser, base_url):
-     
+
     homepage = PatchworkFilterForm(browser)
     homepage.load(base_url)
     homepage.remove_active_filters()
     homepage.remove_active_filters()
 
     assert homepage.active_filters_contains("none") > -1
-

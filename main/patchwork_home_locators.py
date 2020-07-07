@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 
-class PatchworkHomeLocators: 
+
+class PatchworkHomeLocators:
 
     SHOW_PATCH_FILTERS = (By.LINK_TEXT, "Show patches with")
 
@@ -19,4 +20,3 @@ class PatchworkHomeLocators:
     MAIL_SETTINGS = (By.LINK_TEXT, "Mail settings")
 
     HIDE_TOOLBAR = (By.ID, "djHideToolBarButton")
-

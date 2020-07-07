@@ -1,8 +1,8 @@
 from selenium.webdriver.common.keys import Keys
 from main.patchwork_home_locators import PatchworkHomeLocators
 
-class PatchworkHome:
 
+class PatchworkHome:
     def __init__(self, browser):
         self.browser = browser
 
@@ -17,16 +17,20 @@ class PatchworkHome:
 
     def filter_form_is_displayed(self):
 
-        ff_display_value = self.browser.find_element(*PatchworkHomeLocators.FILTER_FORM).get_attribute('style')
+        ff_display_value = self.browser.find_element(
+            *PatchworkHomeLocators.FILTER_FORM
+        ).get_attribute("style")
 
-        if ff_display_value == 'padding-top: 1em; display: block;':
+        if ff_display_value == "padding-top: 1em; display: block;":
             return True
 
     def filter_form_is_hidden(self):
 
-        ff_display_value = self.browser.find_element(*PatchworkHomeLocators.FILTER_FORM).get_attribute('style')
+        ff_display_value = self.browser.find_element(
+            *PatchworkHomeLocators.FILTER_FORM
+        ).get_attribute("style")
 
-        if ff_display_value == 'padding-top: 1em; display: none;':
+        if ff_display_value == "padding-top: 1em; display: none;":
             return True
 
     def navigate_home(self):
@@ -36,9 +40,11 @@ class PatchworkHome:
     def navigate_to_bundles(self):
         bundles_icon = self.browser.find_element(*PatchworkHomeLocators.BUNDLES)
         bundles_icon.click()
-        
+
     def show_project_information(self):
-        information_icon = self.browser.find_element(*PatchworkHomeLocators.PROJECT_INFORMATION)
+        information_icon = self.browser.find_element(
+            *PatchworkHomeLocators.PROJECT_INFORMATION
+        )
         information_icon.click()
 
     def navigate_to_login(self):
