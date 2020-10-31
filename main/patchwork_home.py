@@ -15,6 +15,13 @@ class PatchworkHome:
         )
         show_patch_filters.click()
 
+    def hide_filters(self):
+        show_patch_filters = self.browser.find_element(
+            *PatchworkHomeLocators.SHOW_PATCH_FILTERS
+        )
+        show_patch_filters.click()
+        show_patch_filters.click()
+
     def filter_form_is_displayed(self):
 
         ff_display_value = self.browser.find_element(

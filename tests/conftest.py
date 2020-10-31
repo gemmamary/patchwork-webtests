@@ -1,6 +1,7 @@
 import json
 import pytest
 
+from selenium import webdriver
 from selenium.webdriver import Chrome, Firefox
 
 
@@ -21,7 +22,7 @@ def config_browser(config):
     if "browser" not in config:
         raise Exception('The config file does not contain "browser"')
     elif config["browser"] not in SUPPORTED_BROWSERS:
-        raise Exception(f'"{config["browser"]}" is not a supported browser')
+        raise Exception('Not suppoerted browser')
     return config["browser"]
 
 
@@ -37,7 +38,7 @@ def browser(config_browser, config_wait_time):
     elif config_browser == "firefox":
         driver = Firefox()
     else:
-        raise Exception(f'"{config_browser}" is not a supported browser')
+        raise Exception('Not suppoerted browser')
     driver.implicitly_wait(config_wait_time)
     yield driver
     driver.quit()
